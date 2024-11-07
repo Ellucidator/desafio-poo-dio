@@ -1,18 +1,16 @@
 package br.com.dio.desafio.dominio;
 
-public class Curso {
-    protected String title;
-    protected String description;
+public class Curso extends Conteudo{
     protected int workLoad;
 
-    public Curso(String title, int workLoad, String description) {
-        this.title = title;
+    public Curso(String title, String description, int workLoad) {
+        super(title, description);
         this.workLoad = workLoad;
-        this.description = description;
     }
 
-    public void xpCalculate(){
-
+    @Override
+    public double xpCalculate() {
+        return XP_PADRAO * workLoad;
     }
 
     @Override
@@ -23,4 +21,6 @@ public class Curso {
                 ", workLoad=" + workLoad +
                 '}';
     }
+
+
 }
